@@ -1,3 +1,4 @@
+/*? if essentials {*/
 package me.realized.duels.hook.hooks;
 
 import com.earth2me.essentials.Essentials;
@@ -53,3 +54,4 @@ public class EssentialsHook extends PluginHook<DuelsPlugin> {
         return (user = getPlugin().getUser(player)) != null && user.isVanished();
     }
 }
+/*?}*/
