@@ -54,6 +54,7 @@ import me.realized.duels.util.UpdateChecker;
 import me.realized.duels.util.command.AbstractCommand;
 import me.realized.duels.util.gui.GuiListener;
 import me.realized.duels.util.json.JsonUtil;
+import net.citizensnpcs.api.CitizensAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.event.HandlerList;

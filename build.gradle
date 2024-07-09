@@ -60,6 +60,10 @@ subprojects {
             name 'essentialsx-repo'
             url 'https://repo.essentialsx.net/releases/'
         }
+        maven {
+            name = 'citizens-repo'
+            url = 'https://maven.citizensnpcs.co/repo'
+        }
 
         flatDir {
             dirs "$rootDir/libs/"
