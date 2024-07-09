@@ -50,14 +50,22 @@ subprojects {
             name 'enginehub-repo'
             url 'https://maven.enginehub.org/repo/'
         }
-        maven {
-            name 'essentialsx-repo'
-            url 'https://repo.essentialsx.net/releases/'
-        }
+        
         maven {
             name 'codemc-repo'
             url 'https://repo.codemc.io/repository/maven-public/'
         }
+        
+        maven {
+            name 'essentialsx-repo'
+            url 'https://repo.essentialsx.net/releases/'
+        }
+        
+        maven {
+            name 'codemc-repo'
+            url 'https://repo.codemc.io/repository/maven-public/'
+        }
+        
         maven {
             name = 'citizens-repo'
             url = 'https://maven.citizensnpcs.co/repo'
