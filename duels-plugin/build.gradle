@@ -43,6 +43,9 @@ dependencies {
     implementation project(':duels-worldguard-v6')
     implementation project(':duels-worldguard-v7')
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.1'
+    compileOnly('net.citizensnpcs:citizens-main:2.0.33-SNAPSHOT') {
+        exclude group: '*', module: '*'
+    }
 }
 
 shadowJar {
