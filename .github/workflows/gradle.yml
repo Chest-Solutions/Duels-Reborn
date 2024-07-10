@@ -23,4 +23,4 @@ jobs:
       if: always()
       with:
         name: Build
-        path: /home/runner/work/Chest-Solutions/Duels-Reborn/out/**.jar
+        path: out/**.jar
