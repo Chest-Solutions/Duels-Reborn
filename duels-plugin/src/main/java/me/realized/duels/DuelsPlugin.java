@@ -64,6 +64,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
 
+    private static final String SPIGOT_INSTALLATION_URL = "https://www.spigotmc.org/wiki/spigot-installation/";
+    
     @Getter
     private static DuelsPlugin instance;
 
