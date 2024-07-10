@@ -1,4 +1,4 @@
-/*? if essentials {*/
+/*? if Essentials {*/
 package me.realized.duels.hook.hooks;
 
 import com.earth2me.essentials.Essentials;
