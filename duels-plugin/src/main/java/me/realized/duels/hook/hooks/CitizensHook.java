@@ -1,3 +1,4 @@
+/*? if Citizens {*/
 package me.realized.duels.hook.hooks;
 
 import me.realized.duels.DuelsPlugin;
@@ -15,3 +16,4 @@ public class CitizensHook extends PluginHook<DuelsPlugin> {
         this.config = plugin.getConfiguration();
     }
 }
+/*?}*/
