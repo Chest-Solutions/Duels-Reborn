@@ -187,21 +187,6 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
         if (!configuration.isCheckForUpdates()) {
             return;
         }
-
-        final UpdateChecker updateChecker = new UpdateChecker(this, RESOURCE_ID);
-        updateChecker.check((hasUpdate, newVersion) -> {
-            if (hasUpdate) {
-                DuelsPlugin.this.updateAvailable = true;
-                DuelsPlugin.this.newVersion = newVersion;
-                Log.info("===============================================");
-                Log.info("An update for " + getName() + " is available!");
-                Log.info("Download " + getName() + " v" + newVersion + " here:");
-                Log.info(getDescription().getWebsite());
-                Log.info("===============================================");
-            } else {
-                Log.info("No updates were available. You are on the latest version!");
-            }
-        });
     }
 
     @Override
