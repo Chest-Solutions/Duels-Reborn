@@ -61,9 +61,8 @@ public final class ReflectionUtil {
             public static String cbClass(String className) {
                 return CRAFTBUKKIT_PACKAGE + "." + className);
             }
-
-            //Class.forName(cbClass("entity.CraftBee"))
-        } catch (ClassNotFoundException ex) {
+        }
+        catch (ClassNotFoundException ex) {
             if (logError) {
                 Log.error(ex.getMessage(), ex);
             }
