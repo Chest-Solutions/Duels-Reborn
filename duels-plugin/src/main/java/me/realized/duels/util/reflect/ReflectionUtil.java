@@ -22,7 +22,7 @@ public final class ReflectionUtil {
         String bukkitVersion = Bukkit.getServer().getBukkitVersion();
         String MinorVersion = bukkitVersion.substring(2);
         String MajorVersion = MinorVersion.substring(0, bukkitVersion.length() - 2);
-        return MajorVersion;
+        return Integer.parseInt(MajorVersion);
     }
 
     public static Class<?> getClassUnsafe(final String name) {
