@@ -55,9 +55,14 @@ public final class ReflectionUtil {
     }
 
     public static Class<?> getCBClass(final String path, final boolean logError) {
-            public static String cbClass(String className) {
-                return Bukkit.getServer().getClass().getPackage().getName() + "." + className);
+        try {
+            return Bukkit.getServer().getClass().getPackage().getName() + "." + path);
+        } catch (ClassNotFoundException ex) {
+            if (logError) {
+                Log.error(ex.getMessage(), ex);
             }
+
+            return null;
         }
     }
 
