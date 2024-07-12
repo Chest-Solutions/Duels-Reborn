@@ -21,7 +21,7 @@ public final class ReflectionUtil {
     public static int getMajorVersion() {
         String bukkitVersion = Bukkit.getServer().getBukkitVersion();
         String MinorVersion = bukkitVersion.substring(2);
-        String MajorVersion = MinorVersion.substring(0, bukkitVersion.length() - 2);
+        String MajorVersion = MinorVersion.substring(0, bukkitVersion.length() - 19);
         return Integer.parseInt(MajorVersion);
     }
 
