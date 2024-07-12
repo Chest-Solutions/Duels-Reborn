@@ -56,7 +56,13 @@ public final class ReflectionUtil {
 
     public static Class<?> getCBClass(final String path, final boolean logError) {
         try {
-            return Class.forName("org.bukkit.craftbukkit." + PACKAGE_VERSION + "." + path);
+            private static final String CRAFTBUKKIT_PACKAGE = Bukkit.getServer().getClass().getPackage().getName();
+
+            public static String cbClass(String className) {
+                return CRAFTBUKKIT_PACKAGE + "." + className);
+            }
+
+            //Class.forName(cbClass("entity.CraftBee"))
         } catch (ClassNotFoundException ex) {
             if (logError) {
                 Log.error(ex.getMessage(), ex);
