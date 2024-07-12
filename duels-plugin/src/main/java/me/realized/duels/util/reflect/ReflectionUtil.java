@@ -10,16 +10,20 @@ import org.bukkit.Bukkit;
 public final class ReflectionUtil {
 
     private static final String PACKAGE_VERSION;
-    private static final int MAJOR_VERSION;
+    //private static final int MAJOR_VERSION;
 
     static {
         final String packageName = Bukkit.getServer().getClass().getPackage().getName();
         PACKAGE_VERSION = packageName.substring(packageName.lastIndexOf('.') + 1);
-        MAJOR_VERSION = NumberUtil.parseInt(PACKAGE_VERSION.split("_")[1]).orElse(0);
+        //MAJOR_VERSION = NumberUtil.parseInt(PACKAGE_VERSION.split("_")[1]).orElse(0);
     }
 
     public static int getMajorVersion() {
-        return MAJOR_VERSION;
+        String bukkitVersion = Bukkit.getServer().getBukkitVersion();
+        String MinorVersion = bukkitVersion.substring(2);
+        String MajorVersion = MinorVersion.substring(0, bukkitVersion.length() - 2);
+        String MajorVersionInt = Integer.parseInt(MajorVersion);
+        return MajorVersionInt;
     }
 
     public static Class<?> getClassUnsafe(final String name) {
@@ -54,12 +58,14 @@ public final class ReflectionUtil {
         return getNMSClass(name, true);
     }
 
-    public static Class<?> getCBClass(final String path, final boolean logError) {
-        return (Bukkit.getServer().getClass().getPackage().getName() + "." + path).getClass();
+    private static final String CRAFTBUKKIT_PACKAGE = Bukkit.getServer().getClass().getPackage().getName();
+
+    public static String cbClass(String className) {
+        return CRAFTBUKKIT_PACKAGE + "." + className;
     }
 
     public static Class<?> getCBClass(final String path) {
-        return getCBClass(path, true);
+        return cbClass(path).getClass();
     }
 
     public static Method getMethod(final Class<?> clazz, final String name, final Class<?>... parameters) {
