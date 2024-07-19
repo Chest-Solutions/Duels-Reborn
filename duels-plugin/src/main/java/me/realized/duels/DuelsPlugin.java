@@ -43,7 +43,6 @@ import me.realized.duels.queue.QueueManager;
 import me.realized.duels.queue.sign.QueueSignManagerImpl;
 import me.realized.duels.request.RequestManager;
 import me.realized.duels.setting.SettingsManager;
-import me.realized.duels.shaded.bstats.Metrics;
 import me.realized.duels.spectate.SpectateManagerImpl;
 import me.realized.duels.teleport.Teleport;
 import me.realized.duels.util.Loadable;
@@ -65,10 +64,8 @@ import org.jetbrains.annotations.NotNull;
 
 public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
 
-    private static final int BSTATS_ID = 2696;
-    private static final int RESOURCE_ID = 20171;
     private static final String SPIGOT_INSTALLATION_URL = "https://www.spigotmc.org/wiki/spigot-installation/";
-
+    
     @Getter
     private static DuelsPlugin instance;
 
@@ -187,26 +184,9 @@ public class DuelsPlugin extends JavaPlugin implements Duels, LogSource {
         new KitOptionsListener(this);
         new LingerPotionListener(this);
 
-        new Metrics(this, BSTATS_ID);
-
         if (!configuration.isCheckForUpdates()) {
             return;
         }
-
-        final UpdateChecker updateChecker = new UpdateChecker(this, RESOURCE_ID);
-        updateChecker.check((hasUpdate, newVersion) -> {
-            if (hasUpdate) {
-                DuelsPlugin.this.updateAvailable = true;
-                DuelsPlugin.this.newVersion = newVersion;
-                Log.info("===============================================");
-                Log.info("An update for " + getName() + " is available!");
-                Log.info("Download " + getName() + " v" + newVersion + " here:");
-                Log.info(getDescription().getWebsite());
-                Log.info("===============================================");
-            } else {
-                Log.info("No updates were available. You are on the latest version!");
-            }
-        });
     }
 
     @Override
