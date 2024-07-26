@@ -64,7 +64,7 @@ public final class ReflectionUtil {
     }
 
     public static Class<?> getCBClass(final String path) {
-        
+        return cbClass(path).getClass();
     }
 
     public static Method getMethod(final Class<?> clazz, final String name, final Class<?>... parameters) {
