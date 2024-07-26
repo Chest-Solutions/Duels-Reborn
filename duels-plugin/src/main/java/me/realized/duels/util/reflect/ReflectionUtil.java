@@ -18,25 +18,17 @@ public final class ReflectionUtil {
 
     public static int getMajorVersion() {
         String bukkitVersion = Bukkit.getServer().getBukkitVersion();
-
-        // Split the version string based on dots
-        String[] versionParts = bukkitVersion.split("\\.");
-
-        // Ensure there are at least two parts (major and minor versions)
-        if (versionParts.length > 1) {
+        // Extract the major version from the version string
+        String[] versionParts = bukkitVersion.split("\.");
+        if (versionParts.length > 0) {
             try {
-                // Parse and return the major version (the first part)
                 return Integer.parseInt(versionParts[0].replaceAll("[^0-9]", ""));
             } catch (NumberFormatException e) {
-                // Handle the case where parsing fails
-                e.printStackTrace();
-                return -1; // Return -1 or another indicator of failure
+                // Log error or handle it appropriately
+                return 0;
             }
-        } else {
-            // Handle the case where the version string is not as expected
-            System.err.println("Unexpected Bukkit version format: " + bukkitVersion);
-            return -1; // Return -1 or another indicator of failure
         }
+        return 0;
     }
 
     public static Class<?> getClassUnsafe(final String name) {
