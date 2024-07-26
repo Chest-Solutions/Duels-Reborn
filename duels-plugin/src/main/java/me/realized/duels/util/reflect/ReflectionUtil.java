@@ -59,12 +59,12 @@ public final class ReflectionUtil {
 
     private static final String CRAFTBUKKIT_PACKAGE = Bukkit.getServer().getClass().getPackage().getName();
 
-    public static String cbClass(String className) {
-        return CRAFTBUKKIT_PACKAGE + "." + className;
-    }
+    //public static String cbClass(String className) {
+        //return CRAFTBUKKIT_PACKAGE + "." + className;
+    //}
 
     public static Class<?> getCBClass(final String path) {
-        return cbClass(path).getClass();
+        return CRAFTBUKKIT_PACKAGE + "." + className;
     }
 
     public static Method getMethod(final Class<?> clazz, final String name, final Class<?>... parameters) {
