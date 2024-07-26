@@ -10,19 +10,33 @@ import org.bukkit.Bukkit;
 public final class ReflectionUtil {
 
     private static final String PACKAGE_VERSION;
-    //private static final int MAJOR_VERSION;
 
     static {
         final String packageName = Bukkit.getServer().getClass().getPackage().getName();
         PACKAGE_VERSION = packageName.substring(packageName.lastIndexOf('.') + 1);
-        //MAJOR_VERSION = NumberUtil.parseInt(PACKAGE_VERSION.split("_")[1]).orElse(0);
     }
 
     public static int getMajorVersion() {
         String bukkitVersion = Bukkit.getServer().getBukkitVersion();
-        String MinorVersion = bukkitVersion.substring(2);
-        String MajorVersion = MinorVersion.substring(0, bukkitVersion.length() - 19);
-        return Integer.parseInt(MajorVersion);
+
+        // Split the version string based on dots
+        String[] versionParts = bukkitVersion.split("\\.");
+
+        // Ensure there are at least two parts (major and minor versions)
+        if (versionParts.length > 1) {
+            try {
+                // Parse and return the major version (the first part)
+                return Integer.parseInt(versionParts[0].replaceAll("[^0-9]", ""));
+            } catch (NumberFormatException e) {
+                // Handle the case where parsing fails
+                e.printStackTrace();
+                return -1; // Return -1 or another indicator of failure
+            }
+        } else {
+            // Handle the case where the version string is not as expected
+            System.err.println("Unexpected Bukkit version format: " + bukkitVersion);
+            return -1; // Return -1 or another indicator of failure
+        }
     }
 
     public static Class<?> getClassUnsafe(final String name) {
