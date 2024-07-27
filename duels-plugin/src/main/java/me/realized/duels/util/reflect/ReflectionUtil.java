@@ -19,7 +19,7 @@ public final class ReflectionUtil {
     public static int getMajorVersion() {
         String bukkitVersion = Bukkit.getServer().getBukkitVersion();
         // Extract the major version from the version string
-        String[] versionParts = bukkitVersion.split("\.");
+        String[] versionParts = bukkitVersion.split(".");
         if (versionParts.length > 0) {
             try {
                 return Integer.parseInt(versionParts[0].replaceAll("[^0-9]", ""));
@@ -66,11 +66,11 @@ public final class ReflectionUtil {
     private static final String CRAFTBUKKIT_PACKAGE = Bukkit.getServer().getClass().getPackage().getName();
 
     public static String cbClass(String clazz) {
-        return CRAFTBUKKIT_PACKAGE + "." + clazz);
+        return CRAFTBUKKIT_PACKAGE + "." + clazz;
     }
 
     public static Class<?> getCBClass(final String path) {
-        Class.forName(cbClass(path))
+        return Class.forName(cbClass(path));
     }
 
     public static Method getMethod(final Class<?> clazz, final String name, final Class<?>... parameters) {
