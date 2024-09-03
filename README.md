@@ -1,5 +1,7 @@
 <h1>Duels</h1> 
 
+!!! Dules reborn is archived. Use [this](https://modrinth.com/plugin/duels-optimised)
+
 [![](https://jitpack.io/v/Realizedd/Duels.svg)](https://jitpack.io/#Realizedd/Duels)
 
 A duel plugin for spigot. <a href="https://www.spigotmc.org/resources/duels.20171/">Spigot Project Page</a>
